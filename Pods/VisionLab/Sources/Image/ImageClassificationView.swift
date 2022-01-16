@@ -57,7 +57,7 @@ extension ImageClassificationView {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: margin).isActive = true
     button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    button.widthAnchor.constraint(equalToConstant: 60)
+    _ = button.widthAnchor.constraint(equalToConstant: 60)
 
     label.translatesAutoresizingMaskIntoConstraints = false
     label.topAnchor.constraint(equalTo: button.bottomAnchor, constant: margin * 2).isActive = true

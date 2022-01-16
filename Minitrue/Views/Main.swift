@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct Main: View {
-//    @State private var image: Image?
     @State private var inputImage: UIImage?
     @State private var showPicker = false
+    @StateObject private var metric = Metric()
     
     private var cs: ClassificationService {
         let newCS = ClassificationService()
@@ -20,23 +20,23 @@ struct Main: View {
     
     var body: some View {
         return VStack {
-            ZStack {
-                Rectangle()
-                    .fill(.secondary)
-                
-                Text("Tap to select image")
-                    .foregroundColor(.white)
-                
-                if let img = inputImage {
+            if let img = inputImage {
+                VStack {
                     Image(uiImage: img)
                         .resizable()
                         .scaledToFit()
+                    Text("Gender: \(metric.gender)")
+                    Text("Age: \(metric.age)")
+                    Text("Emotion: \(metric.emotion)")
                 }
-
             }
-            .onTapGesture {
-                showPicker = true
+            Button(action: revealPicker) {
+                Text("Add Photo")
+                    .padding()
             }
+            .background(RoundedRectangle(cornerRadius: 15)
+                            .opacity(0.2))
+            Spacer()
         }
         .onChange(of: inputImage) { _ in
             infer(inputImage: inputImage)
@@ -46,14 +46,18 @@ struct Main: View {
         }
     }
     
+    func revealPicker() {
+        showPicker = true
+    }
+    
     func infer(inputImage: UIImage?) {
         guard let inputImage = inputImage else {
             print("No input image")
             return
         }
         let ciImage = CIImage(cgImage: inputImage.cgImage!)
-        let metrics: [String?] = cs.classify(image: ciImage)
-        print(metrics)
+        let result: [String?] = cs.classify(image: ciImage)
+        metric.update(fromResult: result)
     }
     
 }
