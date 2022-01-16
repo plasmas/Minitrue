@@ -3,7 +3,7 @@ import Vision
 public protocol ClassificationServiceProtocol: AnyObject {
   init()
   func setup()
-  func classify(image: CIImage)
+  func classify(image: CIImage) -> [String?]
 }
 
 public extension ClassificationServiceProtocol {

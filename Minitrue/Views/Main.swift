@@ -19,7 +19,6 @@ struct Main: View {
     }
     
     var body: some View {
-        print(showPicker)
         return VStack {
             ZStack {
                 Rectangle()
@@ -53,8 +52,8 @@ struct Main: View {
             return
         }
         let ciImage = CIImage(cgImage: inputImage.cgImage!)
-        cs.classify(image: ciImage)
-        print(cs.report())
+        let metrics: [String?] = cs.classify(image: ciImage)
+        print(metrics)
     }
     
 }

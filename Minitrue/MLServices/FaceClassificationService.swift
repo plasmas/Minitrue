@@ -44,19 +44,17 @@ final class ClassificationService: ClassificationServiceProtocol {
     }
     
     /// Run individual requests one by one.
-    func classify(image: CIImage) {
+    func classify(image: CIImage) -> [String?] {
         do {
             for request in self.requests {
                 let handler = VNImageRequestHandler(ciImage: image)
                 try handler.perform([request])
             }
+            return [gender, age, emotion]
         } catch {
             print(error)
+            return []
         }
-    }
-    
-    func report() -> [String?] {
-        return [gender, age, emotion]
     }
     
     // MARK: - Handling
