@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3D60B7EE86C06421E54902 /* Pods_Minitrue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0DB47B472ACDEDA38A5B52 /* Pods_Minitrue.framework */; };
 		55E3378B27936C9500C84DB2 /* MinitrueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3378A27936C9500C84DB2 /* MinitrueApp.swift */; };
-		55E3378D27936C9500C84DB2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3378C27936C9500C84DB2 /* ContentView.swift */; };
 		55E3378F27936C9500C84DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E3378E27936C9500C84DB2 /* Assets.xcassets */; };
 		55E3379227936C9500C84DB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E3379127936C9500C84DB2 /* Preview Assets.xcassets */; };
+		55E3379C27936D7B00C84DB2 /* ImageSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3379B27936D7B00C84DB2 /* ImageSelect.swift */; };
+		55E3379E27936E3C00C84DB2 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3379D27936E3C00C84DB2 /* Main.swift */; };
+		55E337A127936ECA00C84DB2 /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A027936ECA00C84DB2 /* AgeNet.mlmodel */; };
+		55E337A427937B4F00C84DB2 /* FaceClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */; };
+		55E337A9279381FF00C84DB2 /* GenderNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A5279381F100C84DB2 /* GenderNet.mlmodel */; };
+		55E337AA279381FF00C84DB2 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A7279381FF00C84DB2 /* CNNEmotions.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F0DB47B472ACDEDA38A5B52 /* Pods_Minitrue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minitrue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E3378727936C9500C84DB2 /* Minitrue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minitrue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E3378A27936C9500C84DB2 /* MinitrueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinitrueApp.swift; sourceTree = "<group>"; };
-		55E3378C27936C9500C84DB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		55E3378E27936C9500C84DB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E3379127936C9500C84DB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		55E3379B27936D7B00C84DB2 /* ImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelect.swift; sourceTree = "<group>"; };
+		55E3379D27936E3C00C84DB2 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		55E337A027936ECA00C84DB2 /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = "<group>"; };
+		55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassificationService.swift; sourceTree = "<group>"; };
+		55E337A5279381F100C84DB2 /* GenderNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderNet.mlmodel; sourceTree = "<group>"; };
+		55E337A7279381FF00C84DB2 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		8DE7BC882F661CB9CD292350 /* Pods-Minitrue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minitrue.release.xcconfig"; path = "Target Support Files/Pods-Minitrue/Pods-Minitrue.release.xcconfig"; sourceTree = "<group>"; };
+		DC9F973D30A306098137ACB2 /* Pods-Minitrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minitrue.debug.xcconfig"; path = "Target Support Files/Pods-Minitrue/Pods-Minitrue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3D60B7EE86C06421E54902 /* Pods_Minitrue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B07784421CCB28EFD6503E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F0DB47B472ACDEDA38A5B52 /* Pods_Minitrue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55E3377E27936C9500C84DB2 = {
 			isa = PBXGroup;
 			children = (
 				55E3378927936C9500C84DB2 /* Minitrue */,
 				55E3378827936C9500C84DB2 /* Products */,
+				EE64392C41B85B613239EF30 /* Pods */,
+				2B07784421CCB28EFD6503E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +76,10 @@
 		55E3378927936C9500C84DB2 /* Minitrue */ = {
 			isa = PBXGroup;
 			children = (
+				55E337A2279378A500C84DB2 /* MLServices */,
+				55E3379F27936EB800C84DB2 /* Resources */,
+				55E3379827936D3800C84DB2 /* Views */,
 				55E3378A27936C9500C84DB2 /* MinitrueApp.swift */,
-				55E3378C27936C9500C84DB2 /* ContentView.swift */,
 				55E3378E27936C9500C84DB2 /* Assets.xcassets */,
 				55E3379027936C9500C84DB2 /* Preview Content */,
 			);
@@ -67,6 +94,43 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		55E3379827936D3800C84DB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55E3379B27936D7B00C84DB2 /* ImageSelect.swift */,
+				55E3379D27936E3C00C84DB2 /* Main.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55E3379F27936EB800C84DB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55E337A7279381FF00C84DB2 /* CNNEmotions.mlmodel */,
+				55E337A5279381F100C84DB2 /* GenderNet.mlmodel */,
+				55E337A027936ECA00C84DB2 /* AgeNet.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55E337A2279378A500C84DB2 /* MLServices */ = {
+			isa = PBXGroup;
+			children = (
+				55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */,
+			);
+			path = MLServices;
+			sourceTree = "<group>";
+		};
+		EE64392C41B85B613239EF30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC9F973D30A306098137ACB2 /* Pods-Minitrue.debug.xcconfig */,
+				8DE7BC882F661CB9CD292350 /* Pods-Minitrue.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55E3379527936C9500C84DB2 /* Build configuration list for PBXNativeTarget "Minitrue" */;
 			buildPhases = (
+				3E09C5094C0473858C48595E /* [CP] Check Pods Manifest.lock */,
 				55E3378327936C9500C84DB2 /* Sources */,
 				55E3378427936C9500C84DB2 /* Frameworks */,
 				55E3378527936C9500C84DB2 /* Resources */,
+				4D8A1D3E2559D923E7F408EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,12 +198,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3E09C5094C0473858C48595E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Minitrue-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D8A1D3E2559D923E7F408EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Minitrue/Pods-Minitrue-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Minitrue/Pods-Minitrue-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Minitrue/Pods-Minitrue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55E3378327936C9500C84DB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55E3378D27936C9500C84DB2 /* ContentView.swift in Sources */,
+				55E337AA279381FF00C84DB2 /* CNNEmotions.mlmodel in Sources */,
+				55E3379C27936D7B00C84DB2 /* ImageSelect.swift in Sources */,
+				55E337A427937B4F00C84DB2 /* FaceClassificationService.swift in Sources */,
+				55E3379E27936E3C00C84DB2 /* Main.swift in Sources */,
+				55E337A9279381FF00C84DB2 /* GenderNet.mlmodel in Sources */,
+				55E337A127936ECA00C84DB2 /* AgeNet.mlmodel in Sources */,
 				55E3378B27936C9500C84DB2 /* MinitrueApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +376,7 @@
 		};
 		55E3379627936C9500C84DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC9F973D30A306098137ACB2 /* Pods-Minitrue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -291,6 +405,7 @@
 		};
 		55E3379727936C9500C84DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE7BC882F661CB9CD292350 /* Pods-Minitrue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

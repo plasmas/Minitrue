@@ -11,7 +11,7 @@ import SwiftUI
 struct MinitrueApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Main()
         }
     }
 }
