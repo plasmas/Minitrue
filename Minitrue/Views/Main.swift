@@ -18,11 +18,9 @@ struct Main: View {
     var body: some View {
         VStack {
             if let img = inputImage {
-                VStack {
-                    Image(uiImage: img)
-                        .resizable()
-                        .scaledToFit()
-                }
+                Image(uiImage: img)
+                    .resizable()
+                    .scaledToFit()
             }
             Button(action: revealPicker) {
                 Text("Add Photo")
@@ -37,11 +35,11 @@ struct Main: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                         VStack(alignment: .leading) {
-                            Text("Gender: \(metric.gender)")
+                            Text("Gender: \(metric.gender.components(separatedBy: " ")[0])")
                                 .font(.system(size: 14))
-                            Text("Age: \(metric.age)")
+                            Text("Age: \(metric.age.components(separatedBy: " ")[0])")
                                 .font(.system(size: 14))
-                            Text("Emotion: \(metric.emotion)")
+                            Text("Emotion: \(metric.emotion.components(separatedBy: " ")[0])")
                                 .font(.system(size: 14))
                         }
                         Spacer()

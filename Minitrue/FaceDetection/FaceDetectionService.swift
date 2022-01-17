@@ -37,11 +37,12 @@ class FaceDetectionService {
             let faceHeight = height * observation.boundingBox.height
             let faceX = width * observation.boundingBox.origin.x
             let faceY = height - height * observation.boundingBox.origin.y - faceHeight
+            let pos = enlargeRect(originX: faceX, originY: faceY, rectWidth: faceWidth, rectHeight: faceHeight, imageWidth: width, imageHeight: height, ratio: 1.1)
 
-            if let croppedImage = image?.cropping(to: CGRect(x: faceX, y: faceY, width: faceWidth, height: faceHeight)) {
+            if let croppedImage = image?.cropping(to: pos) {
                 let res = cs.classify(image: CIImage(cgImage: croppedImage))
                 if let gender = res[0], let age = res[1], let emotion = res[2] {
-                    newMetrics.append(FaceMetric(image: croppedImage, gender: gender, age: age, emotion: emotion))
+                    newMetrics.append(FaceMetric(image: croppedImage, gender: gender, age: age, emotion: emotion, pos: pos))
                 }
             }
         }
@@ -68,5 +69,15 @@ class FaceDetectionService {
     
     public func report() -> [FaceMetric]? {
         return metrics
+    }
+    
+    private func enlargeRect(originX: CGFloat, originY: CGFloat, rectWidth: CGFloat, rectHeight: CGFloat, imageWidth: CGFloat, imageHeight: CGFloat, ratio: CGFloat) -> CGRect {
+        var newWidth = rectWidth * ratio
+        var newHeight = rectHeight * ratio
+        let newOriginX = max(0, originX - (newWidth - rectWidth) / 2)
+        let newOriginY = max(0, originY - (newHeight - rectHeight) / 2)
+        newWidth = min(newWidth, imageWidth - newOriginX)
+        newHeight = min(newHeight, imageHeight - newOriginY)
+        return CGRect(x: newOriginX, y: newOriginY, width: newWidth, height: newHeight)
     }
 }

@@ -18,11 +18,13 @@ class FaceMetric: Identifiable {
     let emotion: String
     
     let image: CGImage
+    let pos: CGRect
     
-    init(image: CGImage, gender: String, age: String, emotion: String) {
+    init(image: CGImage, gender: String, age: String, emotion: String, pos: CGRect) {
         self.image = image
         self.gender = gender
         self.age = age
         self.emotion = emotion
+        self.pos = pos
     }
 }
