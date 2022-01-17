@@ -9,8 +9,10 @@ import SwiftUI
 
 struct Main: View {
     @State private var inputImage: UIImage?
-    @State private var showPicker = false
+    @State private var showImagePicker = false
     @State private var metrics: [FaceMetric]?
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
+    @State private var showSheet = false
 
     
     private var faceDetectionService = FaceDetectionService()
@@ -21,42 +23,65 @@ struct Main: View {
                 Image(uiImage: img)
                     .resizable()
                     .scaledToFit()
+                    .frame(width: 300, height: 200, alignment: .center)
             }
             Button(action: revealPicker) {
-                Text("Add Photo")
-                    .padding()
+                Text("Inspect")
+                    .foregroundColor(.red)
+                    .frame(width: 80, height: 30)
             }
-            .background(RoundedRectangle(cornerRadius: 15)
-                            .opacity(0.2))
+            .actionSheet(isPresented: $showSheet) {
+                ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
+                    .default(Text("Photo Library")) {
+                        self.showImagePicker = true
+                        self.sourceType = .photoLibrary
+                    },
+                    .default(Text("Camera")) {
+                        self.showImagePicker = true
+                        self.sourceType = .camera
+                    },
+                    .cancel()
+                ])
+            }
+            .background(Capsule())
+            if inputImage != nil && metrics == nil {
+                Text("Looking for Faces")
+            }
             if metrics != nil {
-                List(metrics!) { metric in
-                    HStack {
-                        Image(uiImage: UIImage(cgImage: metric.image))
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                        VStack(alignment: .leading) {
-                            Text("Gender: \(metric.gender.components(separatedBy: " ")[0])")
-                                .font(.system(size: 14))
-                            Text("Age: \(metric.age.components(separatedBy: " ")[0])")
-                                .font(.system(size: 14))
-                            Text("Emotion: \(metric.emotion.components(separatedBy: " ")[0])")
-                                .font(.system(size: 14))
+                if metrics?.count == 0 {
+                    Text("No Face Found!")
+                } else {
+                    List(metrics!) { metric in
+                        HStack {
+                            Image(uiImage: UIImage(cgImage: metric.image))
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            VStack(alignment: .leading) {
+                                Text("Gender: \(metric.gender.components(separatedBy: " ")[0])")
+                                    .font(.system(size: 14))
+                                Text("Age: \(metric.age.components(separatedBy: " ")[0])")
+                                    .font(.system(size: 14))
+                                Text("Emotion: \(metric.emotion.components(separatedBy: " ")[0])")
+                                    .font(.system(size: 14))
+                            }
+                            Spacer()
                         }
-                        Spacer()
                     }
+                    .listRowInsets(EdgeInsets())
                 }
+
             }
         }
         .onChange(of: inputImage) { _ in
             processInput(inputImage: inputImage)
         }
-        .sheet(isPresented: $showPicker) {
-            ImagePicker(image: $inputImage)
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(image: self.$inputImage, isShown: self.$showImagePicker, sourceType: self.sourceType)
         }
     }
     
     func revealPicker() {
-        showPicker = true
+        showSheet = true
     }
     
     func processInput(inputImage: UIImage?) {
@@ -64,14 +89,20 @@ struct Main: View {
             print("No input image")
             return
         }
-        faceDetectionService.isolateFaces(fromCGImage: inputImage.cgImage!)
-        metrics = faceDetectionService.report()
+        metrics = nil
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            faceDetectionService.isolateFaces(fromCGImage: inputImage.cgImage!)
+            DispatchQueue.main.async {
+                metrics = faceDetectionService.report()
+            }
+        }
     }
     
 }
 
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        Main()
+        Main().preferredColorScheme(.dark)
     }
 }
