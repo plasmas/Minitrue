@@ -17,7 +17,8 @@
 		55E337A427937B4F00C84DB2 /* FaceClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */; };
 		55E337A9279381FF00C84DB2 /* GenderNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A5279381F100C84DB2 /* GenderNet.mlmodel */; };
 		55E337AA279381FF00C84DB2 /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 55E337A7279381FF00C84DB2 /* CNNEmotions.mlmodel */; };
-		55E337AD2793C76E00C84DB2 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E337AC2793C76E00C84DB2 /* Metric.swift */; };
+		55E337B02794998F00C84DB2 /* FaceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E337AF2794998F00C84DB2 /* FaceDetectionService.swift */; };
+		55E337B22794FAA800C84DB2 /* FaceMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E337B12794FAA800C84DB2 /* FaceMetric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,8 @@
 		55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassificationService.swift; sourceTree = "<group>"; };
 		55E337A5279381F100C84DB2 /* GenderNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderNet.mlmodel; sourceTree = "<group>"; };
 		55E337A7279381FF00C84DB2 /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
-		55E337AC2793C76E00C84DB2 /* Metric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metric.swift; sourceTree = "<group>"; };
+		55E337AF2794998F00C84DB2 /* FaceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionService.swift; sourceTree = "<group>"; };
+		55E337B12794FAA800C84DB2 /* FaceMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMetric.swift; sourceTree = "<group>"; };
 		8DE7BC882F661CB9CD292350 /* Pods-Minitrue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minitrue.release.xcconfig"; path = "Target Support Files/Pods-Minitrue/Pods-Minitrue.release.xcconfig"; sourceTree = "<group>"; };
 		DC9F973D30A306098137ACB2 /* Pods-Minitrue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minitrue.debug.xcconfig"; path = "Target Support Files/Pods-Minitrue/Pods-Minitrue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,13 +80,14 @@
 		55E3378927936C9500C84DB2 /* Minitrue */ = {
 			isa = PBXGroup;
 			children = (
+				55E337AE2794996500C84DB2 /* FaceDetection */,
 				55E337A2279378A500C84DB2 /* MLServices */,
 				55E3379F27936EB800C84DB2 /* Resources */,
 				55E3379827936D3800C84DB2 /* Views */,
 				55E3378A27936C9500C84DB2 /* MinitrueApp.swift */,
 				55E3378E27936C9500C84DB2 /* Assets.xcassets */,
 				55E3379027936C9500C84DB2 /* Preview Content */,
-				55E337AC2793C76E00C84DB2 /* Metric.swift */,
+				55E337B12794FAA800C84DB2 /* FaceMetric.swift */,
 			);
 			path = Minitrue;
 			sourceTree = "<group>";
@@ -122,6 +125,14 @@
 				55E337A327937B4F00C84DB2 /* FaceClassificationService.swift */,
 			);
 			path = MLServices;
+			sourceTree = "<group>";
+		};
+		55E337AE2794996500C84DB2 /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				55E337AF2794998F00C84DB2 /* FaceDetectionService.swift */,
+			);
+			path = FaceDetection;
 			sourceTree = "<group>";
 		};
 		EE64392C41B85B613239EF30 /* Pods */ = {
@@ -250,7 +261,8 @@
 				55E337AA279381FF00C84DB2 /* CNNEmotions.mlmodel in Sources */,
 				55E3379C27936D7B00C84DB2 /* ImageSelect.swift in Sources */,
 				55E337A427937B4F00C84DB2 /* FaceClassificationService.swift in Sources */,
-				55E337AD2793C76E00C84DB2 /* Metric.swift in Sources */,
+				55E337B02794998F00C84DB2 /* FaceDetectionService.swift in Sources */,
+				55E337B22794FAA800C84DB2 /* FaceMetric.swift in Sources */,
 				55E3379E27936E3C00C84DB2 /* Main.swift in Sources */,
 				55E337A9279381FF00C84DB2 /* GenderNet.mlmodel in Sources */,
 				55E337A127936ECA00C84DB2 /* AgeNet.mlmodel in Sources */,

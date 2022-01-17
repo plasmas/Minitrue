@@ -10,24 +10,18 @@ import SwiftUI
 struct Main: View {
     @State private var inputImage: UIImage?
     @State private var showPicker = false
-    @StateObject private var metric = Metric()
+    @State private var metrics: [FaceMetric]?
+
     
-    private var cs: ClassificationService {
-        let newCS = ClassificationService()
-        newCS.setup()
-        return newCS
-    }
+    private var faceDetectionService = FaceDetectionService()
     
     var body: some View {
-        return VStack {
+        VStack {
             if let img = inputImage {
                 VStack {
                     Image(uiImage: img)
                         .resizable()
                         .scaledToFit()
-                    Text("Gender: \(metric.gender)")
-                    Text("Age: \(metric.age)")
-                    Text("Emotion: \(metric.emotion)")
                 }
             }
             Button(action: revealPicker) {
@@ -36,10 +30,27 @@ struct Main: View {
             }
             .background(RoundedRectangle(cornerRadius: 15)
                             .opacity(0.2))
-            Spacer()
+            if metrics != nil {
+                List(metrics!) { metric in
+                    HStack {
+                        Image(uiImage: UIImage(cgImage: metric.image))
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                        VStack(alignment: .leading) {
+                            Text("Gender: \(metric.gender)")
+                                .font(.system(size: 14))
+                            Text("Age: \(metric.age)")
+                                .font(.system(size: 14))
+                            Text("Emotion: \(metric.emotion)")
+                                .font(.system(size: 14))
+                        }
+                        Spacer()
+                    }
+                }
+            }
         }
         .onChange(of: inputImage) { _ in
-            infer(inputImage: inputImage)
+            processInput(inputImage: inputImage)
         }
         .sheet(isPresented: $showPicker) {
             ImagePicker(image: $inputImage)
@@ -50,14 +61,13 @@ struct Main: View {
         showPicker = true
     }
     
-    func infer(inputImage: UIImage?) {
+    func processInput(inputImage: UIImage?) {
         guard let inputImage = inputImage else {
             print("No input image")
             return
         }
-        let ciImage = CIImage(cgImage: inputImage.cgImage!)
-        let result: [String?] = cs.classify(image: ciImage)
-        metric.update(fromResult: result)
+        faceDetectionService.isolateFaces(fromCGImage: inputImage.cgImage!)
+        metrics = faceDetectionService.report()
     }
     
 }
