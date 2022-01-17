@@ -68,7 +68,7 @@ PhotoSourceControllerDelegate, UINavigationControllerDelegate, UIImagePickerCont
 
     // Run Core ML classifier
     DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-      self?.classificationService.classify(image: ciImage)
+      _ = self?.classificationService.classify(image: ciImage)
     }
   }
 }
