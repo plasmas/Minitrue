@@ -7,6 +7,7 @@
 Given an input image, Minitrue will first run face detection to determine how many faces are there in the picture. If there is at least one face present in the picture, Minitrue will analyze the given faces and output a list with analytics for each face.
 
 ![demo1](Demo/demo1.png)
+![Summary](Demo/Summary.png)
 
 ## Tech Stack
 We used
