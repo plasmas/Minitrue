@@ -1,6 +1,6 @@
 #  Minitrue: An iOS APP that detects age, gender, and emotion
 
-## Colaborators
+## Collaborators
 [Yuanqi Wang](https://github.com/plasmas) and [Xi Qiu](https://github.com/robnanarivo)
 
 ## Functionality
